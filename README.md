@@ -41,7 +41,7 @@ Then, you're all set to start managing your employee database with Employee Trac
 
 Check out this demo video to see Employee Tracker in action:
 
-[![Employee Tracker Demo](https://img.youtube.com/)](https://www.youtube.com/)
+[Employee Tracker Demo](https://github.com/lapuzshawn/Employee-Tracker)
 
 
 Happy managing! Feel free to head to happy hour early ~   
