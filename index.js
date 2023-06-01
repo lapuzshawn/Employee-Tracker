@@ -29,10 +29,10 @@ function init() {
 
   console.log(logoText);
 
-  loadMainPrompts();
+  loadPrompt();
 }
 
-function loadMainPrompts() {
+function loadPrompt() {
   prompt([
     {
       type: "list",
@@ -113,7 +113,7 @@ function viewEmployees() {
       console.log("\n");
       console.table(employees);
     })
-    .then(() => loadMainPrompts());
+    .then(() => loadPrompt());
 }
 
 // View all roles
@@ -124,7 +124,7 @@ function viewRoles() {
       console.log("\n");
       console.table(roles);
     })
-    .then(() => loadMainPrompts());
+    .then(() => loadPrompt());
 }
 
 // View all departments
@@ -135,7 +135,7 @@ function viewDepartments() {
       console.log("\n");
       console.table(departments);
     })
-    .then(() => loadMainPrompts());
+    .then(() => loadPrompt());
 }
 
 // Add an employee
@@ -160,11 +160,11 @@ function addEmployee() {
   ])
     .then(employee => {
       db.createEmployee(employee);
+      console.log(
+        `Added ${employee.first_name} ${employee.last_name} to the database`
+      )
     })
-    .then(() => {
-      console.log("Employee added successfully!");
-      loadMainPrompts();
-    });
+    .then(() => loadPrompt());;
 }
 
 // Add a role
@@ -188,7 +188,7 @@ function addRole() {
     })
     .then(() => {
       console.log("Role added successfully!");
-      loadMainPrompts();
+      loadPrompt();
     });
 }
 
@@ -205,7 +205,7 @@ function addDepartment() {
     })
     .then(() => {
       console.log("Department added successfully!");
-      loadMainPrompts();
+      loadPrompt();
     });
 }
 
@@ -234,11 +234,9 @@ function updateEmployeeRole() {
         .then(data => {
           const { employeeId, roleId } = data;
           db.updateEmployeeRole(employeeId, roleId);
-        })
-        .then(() => {
           console.log("Employee role updated successfully!");
-          loadMainPrompts();
-        });
+        })
+        .then(() => loadPrompt());
     });
 }
 
